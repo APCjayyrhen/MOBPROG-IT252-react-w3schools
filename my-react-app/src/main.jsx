@@ -1,11 +1,16 @@
 import { createRoot } from 'react-dom/client'
 
 function Car() {
-  const myfunc = () => {
-    alert('Hello World');
+  const mystyles = {
+    color: "red",
+    fontSize: "20px",
+    backgroundColor: "lightyellow",
   };
+
   return (
-    <button onClick={myfunc} disabled>Click me</button>
+    <>
+      <h1 style={mystyles}>My car</h1>
+    </>
   );
 }
 
