@@ -1,18 +1,16 @@
 import { createRoot } from 'react-dom/client';
-import { Suspense } from 'react';
-import MyFruits from './Fruits';
-//Click the "Fruits.jsx" tab to check out the Fruits.jsx file
 
-function App() {
+const Header = () => {
   return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <MyFruits />
-      </Suspense>
-    </div>
+    <>
+      <h1 style={{color: "red"}}>Hello Style!</h1>
+      <p>Add a little style!</p>
+    </>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <App />
+  <Header />
 );
+
+                    
