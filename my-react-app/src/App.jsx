@@ -1,12 +1,5 @@
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello World!</h1>
-      <h2>Happy 2026 SoCITFest</h2>
-      <h3>Have a good long weekend</h3>
-      <p>Jayyrhen Micael</p>
-    </div>
-  );
-}
+const myElement = <h1>I Love JSX!</h1>;
 
-export default App;
+createRoot(document.getElementById('root')).render(
+  myElement
+);
