@@ -8,8 +8,13 @@ function MyForm() {
     setName(e.target.value);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert(name);
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>Enter your name:
         <input
           type="text" 
@@ -17,11 +22,11 @@ function MyForm() {
           onChange={handleChange}
         />
       </label>
-      <p>Current value: {name}</p>
+      <input type="submit" />
     </form>
   )
 }
 
 createRoot(document.getElementById('root')).render(
   <MyForm />
-);     
+);
