@@ -1,17 +1,18 @@
 import { createRoot } from 'react-dom/client';
-import './MyStylesheet.css';
+import styles from './Button.module.css';
 
-const Header = () => {
+function App() {
   return (
-    <>
-      <h1>Hello Style!</h1>
-      <p>Add a little style!.</p>
-    </>
+    <div>
+      <button className={styles.mybutton}>
+        My Button
+      </button>
+    </div>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <Header />
+  <App />
 );
 
                     
