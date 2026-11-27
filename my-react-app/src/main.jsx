@@ -1,13 +1,14 @@
 import { createRoot } from 'react-dom/client'
 
-function Car(props) {
+function Goal(props) {
+  const isGoal = props.isGoal;
   return (
     <>
-      {props.brand && <h1>My car is a {props.brand}</h1>}
+      { isGoal ? <MadeGoal/> : <MissedGoal/> }
     </>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <Car brand="Ford" />
+  <Goal isGoal={false} />
 );
