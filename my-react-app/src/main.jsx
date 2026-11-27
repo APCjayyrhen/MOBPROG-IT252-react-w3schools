@@ -1,12 +1,13 @@
 import { createRoot } from 'react-dom/client';
 import { Suspense } from 'react';
-import Fruits from './Fruits';
+import MyFruits from './Fruits';
+//Click the "Fruits.jsx" tab to check out the Fruits.jsx file
 
 function App() {
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
-        <Fruits />
+        <MyFruits />
       </Suspense>
     </div>
   );

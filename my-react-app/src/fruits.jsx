@@ -27,3 +27,5 @@ function MyFruits() {
     </>
   );
 }
+
+export default MyFruits;
