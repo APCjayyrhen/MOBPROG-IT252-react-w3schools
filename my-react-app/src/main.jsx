@@ -1,5 +1,16 @@
 import { createRoot } from 'react-dom/client'
 
-const myElement = <h1>Hello {/* Wonderful */} World </h1>;
+function Car() {
+  return (
+    <>
+      <h2>My Car</h2>
+      <p>It is a Ford Mustang.</p>
+    </>
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  <Car />
+)
 
 createRoot(document.getElementById('root')).render(myElement);
