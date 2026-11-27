@@ -1,21 +1,38 @@
 import { createRoot } from 'react-dom/client';
-import styles from './Button.module.css';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+function Home() {
+  return <h1>Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Page</h1>;
+}
+
+function Contact() {
+  return <h1>Contact Page</h1>;
+}
 
 function App() {
   return (
-    <div>
-      <button className={styles.primary}>
-        Primary Button
-      </button>
-      <br/>
-      <br/>
-      <button className={styles.secondary}>
-        Secondary Button
-      </button>
-    </div>
+    <BrowserRouter>
+      {/* Navigation */}
+      <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link> |{" "}
+        <Link to="/contact">Contact</Link>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 createRoot(document.getElementById('root')).render(
   <App />
-);   
+);
