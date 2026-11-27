@@ -1,27 +1,59 @@
-import { useState, useRef, useEffect } from 'react';
+import { useReducer } from 'react';
 import { createRoot } from 'react-dom/client';
 
-function App() {
-  const [inputValue, setInputValue] = useState("");
-  const count = useRef(0);
+const initialScore = [
+  {
+    id: 1,
+    score: 0,
+    name: "John",
+  },
+  {
+    id: 2,
+    score: 0,
+    name: "Sally",
+  },
+];
 
-  useEffect(() => {
-    count.current = count.current + 1;
-  });
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCREASE":
+      return state.map((player) => {
+        if (player.id === action.id) {
+          return { ...player, score: player.score + 1 };
+        } else {
+          return player;
+        }
+      });
+    default:
+      return state;
+  }
+};
+
+function Score() {
+  const [score, dispatch] = useReducer(reducer, initialScore);
+
+  const handleIncrease = (player) => {
+    dispatch({ type: "INCREASE", id: player.id });
+  };
 
   return (
     <>
-      <p>Type in the input field:</p>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <h1>Render Count: {count.current}</h1>
+      {score.map((player) => (
+        <div key={player.id}>
+          <label>
+            <input
+              type="button"
+              onClick={() => handleIncrease(player)}
+              value={player.name}
+            />
+            {player.score}
+          </label>
+        </div>
+      ))}
     </>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <App />
+  <Score />
 );
