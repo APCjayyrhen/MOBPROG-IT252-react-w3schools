@@ -1,4 +1,5 @@
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
+import { createRoot } from 'react-dom/client'
 
-createRoot(document.getElementById('root')).render(<App />);
+const myElement = <h1>React is {5 + 5} times better with JSX</h1>;
+
+createRoot(document.getElementById('root')).render(myElement);
